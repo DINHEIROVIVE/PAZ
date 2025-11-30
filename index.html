@@ -41,13 +41,13 @@
 
       if (option === 'familia') {
         app.innerHTML = `
-          <h1>PENSE COMO UM IDIOTA</h1>
+          <h1>PENSE NO SEU EU DE AGORA</h1>
           <button onclick="restart()">Reiniciar</button>
         `;
       } else if (option === 'dinheiro') {
         app.innerHTML = `
           <h1>__/__/2025</h1>
-          <p>Quer descobrir a data?</p>
+          <p>QUER FICAR PERTO DA PAZ?</p>
           <button onclick="nextQuestion()">Próxima pergunta</button>
         `;
       }
@@ -59,7 +59,7 @@
 
     let step = 0;
     const questions = [
-      { q: 'O QUE FALTA PRA TER PAZ?', a1: 'CORAGEM', a2: 'RAIVA' },
+      { q: 'O QUE FALTA PARA VOCE?', a1: 'CORAGEM', a2: 'PASSADO' },
       { q: 'VOCÊ TEM CERTEZA?', a1: 'SIM', a2: 'NÃO' }
     ];
 
@@ -76,8 +76,8 @@
         step++;
       } else {
         app.innerHTML = `
-          <h1>LANÇAMENTO</h1>
-          <h2>24/07/2025</h2>
+          <h1></h1>
+          <h2>__/12/2025</h2>
         `;
       }
     }
