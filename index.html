@@ -45,11 +45,7 @@
           <button onclick="restart()">Reiniciar</button>
         `;
       } else if (option === 'dinheiro') {
-        app.innerHTML = `
-          <h1>__/__/2025</h1>
-          <p>Quer chegar perto da paz?</p>
-          <button onclick="nextQuestion()">Próxima pergunta</button>
-        `;
+        startFlow();
       }
     }
 
@@ -57,34 +53,85 @@
       location.reload();
     }
 
-    // exemplo simples de fluxo até revelar a data
-    let step = 0;
-    const questions = [
-      { q: 'O QUE MAIS FALTA PARA VOCE?', a1: 'CORAGEM', a2: 'PASSADO' },
-      { q: 'VOCÊ TEM CERTEZA?', a1: 'SIM', a2: 'NÃO' }
-    ];
+    // NOVO FLUXO COMPLETO
+    let stage = 0;
 
-    function nextQuestion() {
+    function startFlow() {
       const app = document.getElementById('app');
+      app.innerHTML = `
+        <h1>__/__/2025</h1>
+        <button onclick="step1_question()">Continuar</button>
+      `;
+    }
 
-      if (step < questions.length) {
-        const q = questions[step];
+    // ETAPA 1 – O QUE MAIS FALTA
+    function step1_question() {
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <h1>O QUE MAIS FALTA PARA VOCE?</h1>
+        <button onclick="step1_answer('coragem')">CORAGEM</button>
+        <button onclick="step1_answer('passado')">PASSADO</button>
+      `;
+    }
+
+    function step1_answer(choice) {
+      const app = document.getElementById('app');
+      if (choice === 'coragem') {
         app.innerHTML = `
-          <h1>${q.q}</h1>
-          <button onclick="answer()">${q.a1}</button>
-          <button onclick="answer()">${q.a2}</button>
+          <h1>lembre do que ja foi</h1>
+          <button onclick="step1_question()">Reiniciar</button>
         `;
-        step++;
+      } else {
+        step2_question();
+      }
+    }
+
+    // ETAPA 2 – VOCE ACHA QUE A PAZ PODE VOLTAR UM DIA?
+    function step2_question() {
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <h1>voce acha que a paz pode voltar um dia?</h1>
+        <button onclick="step2_answer()">sim, fazendo musica.</button>
+        <button onclick="step2_answer()">nao, ja passou.</button>
+      `;
+    }
+
+    function step2_answer() {
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <h2>__/12/2025</h2>
+        <button onclick="step3_question()">Continuar</button>
+      `;
+    }
+
+    // ETAPA 3 – VOCE AINDA SABE O QUE É A PAZ?
+    function step3_question() {
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <h1>voce ainda sabe o que é a paz?</h1>
+        <button onclick="step3_answer('sim')">sim</button>
+        <button onclick="step3_answer('nao')">nao</button>
+      `;
+    }
+
+    function step3_answer(choice) {
+      const app = document.getElementById('app');
+      if (choice === 'sim') {
+        app.innerHTML = `
+          <h1>acho que voce esta confuso</h1>
+          <button onclick="step3_question()">Reiniciar</button>
+        `;
       } else {
         app.innerHTML = `
-          <h1></h1>
-          <h2>__/12/2025</h2>
+          <h1>...</h1>
+          <button onclick="goToVideo()">Continuar</button>
         `;
       }
     }
 
-    function answer() {
-      nextQuestion();
+    function goToVideo() {
+      // substituir quando você enviar o link
+      window.location.href = "#";
     }
   </script>
   <audio id="bg-audio" src="audio.mp3" loop></audio>
@@ -94,5 +141,15 @@
     if (audio.paused) audio.play();
   }, { once: true });
 </script>
+  <audio id="click-sound" src="click.mp3"></audio>
+  <script>
+    document.addEventListener('click', function(e) {
+      if (e.target.tagName === 'BUTTON') {
+        const click = document.getElementById('click-sound');
+        click.currentTime = 0;
+        click.play();
+      }
+    });
+  </script>
 </body>
 </html>
