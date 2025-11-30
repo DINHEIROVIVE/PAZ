@@ -38,30 +38,16 @@
   <script>
     function choose(option) {
       const app = document.getElementById('app');
-      stage = 0;
 
       if (option === 'familia') {
-        app.innerHTML = `
-          <h1>PENSE COMO UM IDIOTA</h1>
-          <button onclick="restart()">REINICIAR</button>
-        `;
-      } else if (option === 'dinheiro') {
-        startFlow();
+        step1_question();
+        return;
       }
-    }
 
-    function restart() {
-      location.reload();
-    }
-
-    let stage = 0;
-
-    function startFlow() {
-      const app = document.getElementById('app');
-      app.innerHTML = `
-        <h1>__/__/2025</h1>
-        <button onclick="step1_question()">CONTINUAR</button>
-      `;
+      if (option === 'dinheiro') {
+        step1_question();
+        return;
+      }
     }
 
     function step1_question() {
@@ -124,7 +110,6 @@
           <a href="https://www.youtube.com/watch?v=D00WDQvh3mo" target="_blank">
             <button>ABRIR VÍDEO</button>
           </a>
-        `()">CONTINUAR</button>
         `;
       }
     }
