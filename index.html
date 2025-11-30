@@ -41,48 +41,26 @@
 
       if (option === 'familia') {
         app.innerHTML = `
-          <h1>PENSE NO SEU EU DE AGORA</h1>
+          <h1>PENSE COMO UM IDIOTA</h1>
           <button onclick="restart()">Reiniciar</button>
         `;
       } else if (option === 'dinheiro') {
         app.innerHTML = `
           <h1>__/__/2025</h1>
-          <p>QUER FICAR PERTO DA PAZ?</p>
+          <p>Quer chegar perto da paz?</p>
           <button onclick="nextQuestion()">Próxima pergunta</button>
         `;
       }
     }
 
-  <div class="container" id="app">
-    <h1>O QUE FALTA PARA VOCE??</h1>
-    <button onclick="choose('familia')">CORAGEM</button>
-    <button onclick="choose('dinheiro')">PASSADO</button>
-  </div>
-
-  <script>
-    function choose(option) {
-      const app = document.getElementById('app');
-
-      if (option === 'CORAGEM') {
-        app.innerHTML = `
-          <h1>LEMBRE DO QUE JA FOI</h1>
-          <button onclick="restart()">Reiniciar</button>
-        `;
-      } else if (option === 'PASSADO') {
-        app.innerHTML = `
-          <h1>__/12/2025</h1>
-          <p>FALTA POUCO</p>
-          <button onclick="nextQuestion()">Próxima pergunta</button>
-        `;
-      }
-    }
     function restart() {
       location.reload();
     }
 
+    // exemplo simples de fluxo até revelar a data
     let step = 0;
     const questions = [
-      { q: 'O QUE FALTA PARA VOCE?', a1: 'CORAGEM', a2: 'PASSADO' },
+      { q: 'O QUE MAIS FALTA PARA VOCE?', a1: 'CORAGEM', a2: 'PASSADO' },
       { q: 'VOCÊ TEM CERTEZA?', a1: 'SIM', a2: 'NÃO' }
     ];
 
@@ -109,5 +87,6 @@
       nextQuestion();
     }
   </script>
+  <audio id="bg-audio" src="audio.mp3" autoplay loop></audio>
 </body>
 </html>
