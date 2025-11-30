@@ -87,6 +87,12 @@
       nextQuestion();
     }
   </script>
-  <audio id="bg-audio" src="audio.mp3" autoplay loop></audio>
+  <audio id="bg-audio" src="audio.mp3" loop></audio>
+<script>
+  document.body.addEventListener('click', function() {
+    const audio = document.getElementById('bg-audio');
+    if (audio.paused) audio.play();
+  }, { once: true });
+</script>
 </body>
 </html>
