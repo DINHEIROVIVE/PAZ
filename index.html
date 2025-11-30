@@ -31,22 +31,27 @@
 <body>
   <div class="container" id="app">
     <h1>O QUE É A PAZ?</h1>
-    <button onclick="choose('familia')">Família</button>
-    <button onclick="choose('dinheiro')">Dinheiro</button>
+    <button onclick="choose('familia')">FAMÍLIA</button>
+    <button onclick="choose('dinheiro')">DINHEIRO</button>
   </div>
 
   <script>
     function choose(option) {
       const app = document.getElementById('app');
 
+      // ZERA O FLUXO PARA GARANTIR QUE SEMPRE COMEÇA DO NOVO SISTEMA
+      stage = 0;
+
       if (option === 'familia') {
         app.innerHTML = `
           <h1>PENSE COMO UM IDIOTA</h1>
-          <button onclick="restart()">Reiniciar</button>
+          <button onclick="restart()">REINICIAR</button>
         `;
       } else if (option === 'dinheiro') {
+        // GARANTE QUE A NOVA LÓGICA SEMPRE ENTRA
         startFlow();
       }
+    }
     }
 
     function restart() {
@@ -68,7 +73,7 @@
     function step1_question() {
       const app = document.getElementById('app');
       app.innerHTML = `
-        <h1>O QUE MAIS FALTA PARA VOCE?</h1>
+        <h1>O QUE MAIS FALTA PARA VOCÊ?</h1>
         <button onclick="step1_answer('coragem')">CORAGEM</button>
         <button onclick="step1_answer('passado')">PASSADO</button>
       `;
@@ -78,7 +83,7 @@
       const app = document.getElementById('app');
       if (choice === 'coragem') {
         app.innerHTML = `
-          <h1>lembre do que ja foi</h1>
+          <h1>LEMBRE DO QUE JÁ FOI</h1>
           <button onclick="step1_question()">Reiniciar</button>
         `;
       } else {
@@ -90,9 +95,9 @@
     function step2_question() {
       const app = document.getElementById('app');
       app.innerHTML = `
-        <h1>voce acha que a paz pode voltar um dia?</h1>
-        <button onclick="step2_answer()">sim, fazendo musica.</button>
-        <button onclick="step2_answer()">nao, ja passou.</button>
+        <h1>VOCÊ ACHA QUE A PAZ PODE VOLTAR UM DIA?</h1>
+        <button onclick="step2_answer()">SIM, FAZENDO MÚSICA</button>
+        <button onclick="step2_answer()">NÃO, JÁ PASSOU</button>
       `;
     }
 
@@ -108,9 +113,9 @@
     function step3_question() {
       const app = document.getElementById('app');
       app.innerHTML = `
-        <h1>voce ainda sabe o que é a paz?</h1>
-        <button onclick="step3_answer('sim')">sim</button>
-        <button onclick="step3_answer('nao')">nao</button>
+        <h1>VOCÊ AINDA SABE O QUE É A PAZ?</h1>
+        <button onclick="step3_answer('sim')">SIM</button>
+        <button onclick="step3_answer('nao')">NÃO</button>
       `;
     }
 
@@ -118,7 +123,7 @@
       const app = document.getElementById('app');
       if (choice === 'sim') {
         app.innerHTML = `
-          <h1>acho que voce esta confuso</h1>
+          <h1>ACHO QUE VOCÊ ESTÁ CONFUSO</h1>
           <button onclick="step3_question()">Reiniciar</button>
         `;
       } else {
