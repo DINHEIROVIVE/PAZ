@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEM PERTO DA PAZ</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      max-width: 400px;
+    }
+    button {
+      margin: 10px;
+      padding: 12px 20px;
+      background: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="app">
+    <h1>O QUE É A PAZ?</h1>
+    <button onclick="choose('familia')">Família</button>
+    <button onclick="choose('dinheiro')">Dinheiro</button>
+  </div>
+
+  <script>
+    function choose(option) {
+      const app = document.getElementById('app');
+
+      if (option === 'familia') {
+        app.innerHTML = `
+          <h1>PENSE COMO UM IDIOTA</h1>
+          <button onclick="restart()">Reiniciar</button>
+        `;
+      } else if (option === 'dinheiro') {
+        app.innerHTML = `
+          <h1>__/__/2025</h1>
+          <p>Quer descobrir a data?</p>
+          <button onclick="nextQuestion()">Próxima pergunta</button>
+        `;
+      }
+    }
+
+    function restart() {
+      location.reload();
+    }
+
+    let step = 0;
+    const questions = [
+      { q: 'O QUE FALTA PRA TER PAZ?', a1: 'CORAGEM', a2: 'RAIVA' },
+      { q: 'VOCÊ TEM CERTEZA?', a1: 'SIM', a2: 'NÃO' }
+    ];
+
+    function nextQuestion() {
+      const app = document.getElementById('app');
+
+      if (step < questions.length) {
+        const q = questions[step];
+        app.innerHTML = `
+          <h1>${q.q}</h1>
+          <button onclick="answer()">${q.a1}</button>
+          <button onclick="answer()">${q.a2}</button>
+        `;
+        step++;
+      } else {
+        app.innerHTML = `
+          <h1>LANÇAMENTO</h1>
+          <h2>24/07/2025</h2>
+        `;
+      }
+    }
+
+    function answer() {
+      nextQuestion();
+    }
+  </script>
+</body>
+</html>
