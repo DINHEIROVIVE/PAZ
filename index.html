@@ -1,154 +1,153 @@
-<!DOCTYPE HTML>
-<HTML LANG="PT-BR">
-<HEAD>
-  <META CHARSET="UTF-8" />
-  <META NAME="VIEWPORT" CONTENT="WIDTH=DEVICE-WIDTH, INITIAL-SCALE=1.0" />
-  <TITLE>NEM PERTO DA PAZ</TITLE>
-  <STYLE>
-    BODY {
-      BACKGROUND: #000;
-      COLOR: #FFF;
-      FONT-FAMILY: ARIAL, SANS-SERIF;
-      DISPLAY: FLEX;
-      JUSTIFY-CONTENT: CENTER;
-      ALIGN-ITEMS: CENTER;
-      HEIGHT: 100VH;
-      TEXT-ALIGN: CENTER;
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEM PERTO DA PAZ</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
     }
-    .CONTAINER {
-      MAX-WIDTH: 400PX;
+    .container {
+      max-width: 400px;
     }
-    BUTTON {
-      MARGIN: 10PX;
-      PADDING: 12PX 20PX;
-      BACKGROUND: #FFF;
-      BORDER: NONE;
-      CURSOR: POINTER;
-      FONT-SIZE: 16PX;
+    button {
+      margin: 10px;
+      padding: 12px 20px;
+      background: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
     }
-  </STYLE>
-</HEAD>
-<BODY>
-  <DIV CLASS="CONTAINER" ID="APP">
-    <H1>O QUE É A PAZ?</H1>
-    <BUTTON ONCLICK="CHOOSE('FAMILIA')">FAMÍLIA</BUTTON>
-    <BUTTON ONCLICK="CHOOSE('DINHEIRO')">DINHEIRO</BUTTON>
-  </DIV>
+  </style>
+</head>
+<body>
+  <div class="container" id="app">
+    <h1>O QUE É A PAZ?</h1>
+    <button onclick="choose('familia')">FAMÍLIA</button>
+    <button onclick="choose('dinheiro')">DINHEIRO</button>
+  </div>
 
-  <SCRIPT>
-    FUNCTION CHOOSE(OPTION) {
-      CONST APP = DOCUMENT.GETELEMENTBYID('APP');
+  <script>
+    function choose(option) {
+      const app = document.getElementById('app');
+      stage = 0;
 
-      STAGE = 0;
-
-      IF (OPTION === 'FAMILIA') {
-        APP.INNERHTML = `
-          <H1>PENSE COMO UM IDIOTA</H1>
-          <BUTTON ONCLICK="RESTART()">REINICIAR</BUTTON>
+      if (option === 'familia') {
+        app.innerHTML = `
+          <h1>PENSE COMO UM IDIOTA</h1>
+          <button onclick="restart()">REINICIAR</button>
         `;
-      } ELSE IF (OPTION === 'DINHEIRO') {
-        STARTFLOW();
+      } else if (option === 'dinheiro') {
+        startFlow();
       }
     }
 
-    FUNCTION RESTART() {
-      LOCATION.RELOAD();
+    function restart() {
+      location.reload();
     }
 
-    LET STAGE = 0;
+    let stage = 0;
 
-    FUNCTION STARTFLOW() {
-      CONST APP = DOCUMENT.GETELEMENTBYID('APP');
-      APP.INNERHTML = `
-        <H1>__/__/2025</H1>
-        <BUTTON ONCLICK="STEP1_QUESTION()">CONTINUAR</BUTTON>
+    function startFlow() {
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <h1>__/__/2025</h1>
+        <button onclick="step1_question()">CONTINUAR</button>
       `;
     }
 
-    FUNCTION STEP1_QUESTION() {
-      CONST APP = DOCUMENT.GETELEMENTBYID('APP');
-      APP.INNERHTML = `
-        <H1>O QUE MAIS FALTA PARA VOCÊ?</H1>
-        <BUTTON ONCLICK="STEP1_ANSWER('CORAGEM')">CORAGEM</BUTTON>
-        <BUTTON ONCLICK="STEP1_ANSWER('PASSADO')">PASSADO</BUTTON>
+    function step1_question() {
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <h1>O QUE MAIS FALTA PARA VOCÊ?</h1>
+        <button onclick="step1_answer('coragem')">CORAGEM</button>
+        <button onclick="step1_answer('passado')">PASSADO</button>
       `;
     }
 
-    FUNCTION STEP1_ANSWER(CHOICE) {
-      CONST APP = DOCUMENT.GETELEMENTBYID('APP');
-      IF (CHOICE === 'CORAGEM') {
-        APP.INNERHTML = `
-          <H1>LEMBRE DO QUE JÁ FOI</H1>
-          <BUTTON ONCLICK="STEP1_QUESTION()">REINICIAR</BUTTON>
+    function step1_answer(choice) {
+      const app = document.getElementById('app');
+      if (choice === 'coragem') {
+        app.innerHTML = `
+          <h1>LEMBRE DO QUE JÁ FOI</h1>
+          <button onclick="step1_question()">REINICIAR</button>
         `;
-      } ELSE {
-        STEP2_QUESTION();
+      } else {
+        step2_question();
       }
     }
 
-    FUNCTION STEP2_QUESTION() {
-      CONST APP = DOCUMENT.GETELEMENTBYID('APP');
-      APP.INNERHTML = `
-        <H1>VOCÊ ACHA QUE A PAZ PODE VOLTAR UM DIA?</H1>
-        <BUTTON ONCLICK="STEP2_ANSWER()">SIM, FAZENDO MÚSICA</BUTTON>
-        <BUTTON ONCLICK="STEP2_ANSWER()">NÃO, JÁ PASSOU</BUTTON>
+    function step2_question() {
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <h1>VOCÊ ACHA QUE A PAZ PODE VOLTAR UM DIA?</h1>
+        <button onclick="step2_answer()">SIM, FAZENDO MÚSICA</button>
+        <button onclick="step2_answer()">NÃO, JÁ PASSOU</button>
       `;
     }
 
-    FUNCTION STEP2_ANSWER() {
-      CONST APP = DOCUMENT.GETELEMENTBYID('APP');
-      APP.INNERHTML = `
-        <H2>__/12/2025</H2>
-        <BUTTON ONCLICK="STEP3_QUESTION()">CONTINUAR</BUTTON>
+    function step2_answer() {
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <h2>__/12/2025</h2>
+        <button onclick="step3_question()">CONTINUAR</button>
       `;
     }
 
-    FUNCTION STEP3_QUESTION() {
-      CONST APP = DOCUMENT.GETELEMENTBYID('APP');
-      APP.INNERHTML = `
-        <H1>VOCÊ AINDA SABE O QUE É A PAZ?</H1>
-        <BUTTON ONCLICK="STEP3_ANSWER('SIM')">SIM</BUTTON>
-        <BUTTON ONCLICK="STEP3_ANSWER('NAO')">NÃO</BUTTON>
+    function step3_question() {
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <h1>VOCÊ AINDA SABE O QUE É A PAZ?</h1>
+        <button onclick="step3_answer('sim')">SIM</button>
+        <button onclick="step3_answer('nao')">NÃO</button>
       `;
     }
 
-    FUNCTION STEP3_ANSWER(CHOICE) {
-      CONST APP = DOCUMENT.GETELEMENTBYID('APP');
-      IF (CHOICE === 'SIM') {
-        APP.INNERHTML = `
-          <H1>ACHO QUE VOCÊ ESTÁ CONFUSO</H1>
-          <BUTTON ONCLICK="STEP3_QUESTION()">REINICIAR</BUTTON>
+    function step3_answer(choice) {
+      const app = document.getElementById('app');
+      if (choice === 'sim') {
+        app.innerHTML = `
+          <h1>ACHO QUE VOCÊ ESTÁ CONFUSO</h1>
+          <button onclick="step3_question()">REINICIAR</button>
         `;
-      } ELSE {
-        APP.INNERHTML = `
-          <H1>...</H1>
-          <BUTTON ONCLICK="GOTOVIDEO()">CONTINUAR</BUTTON>
+      } else {
+        app.innerHTML = `
+          <h1>...</h1>
+          <button onclick="goToVideo()">CONTINUAR</button>
         `;
       }
     }
 
-    FUNCTION GOTOVIDEO() {
-      WINDOW.LOCATION.HREF = "#";
+    function goToVideo() {
+      window.location.href = "#";
     }
-  </SCRIPT>
+  </script>
 
-  <AUDIO ID="BG-AUDIO" SRC="AUDIO.MP3" LOOP></AUDIO>
-  <SCRIPT>
-    DOCUMENT.BODY.ADDEVENTLISTENER('CLICK', FUNCTION() {
-      CONST AUDIO = DOCUMENT.GETELEMENTBYID('BG-AUDIO');
-      IF (AUDIO.PAUSED) AUDIO.PLAY();
-    }, { ONCE: TRUE });
-  </SCRIPT>
+  <audio id="bg-audio" src="audio.mp3" loop></audio>
+  <script>
+    document.body.addEventListener('click', function() {
+      const audio = document.getElementById('bg-audio');
+      if (audio.paused) audio.play();
+    }, { once: true });
+  </script>
 
-  <AUDIO ID="CLICK-SOUND" SRC="CLICK.MP3"></AUDIO>
-  <SCRIPT>
-    DOCUMENT.ADDEVENTLISTENER('CLICK', FUNCTION(E) {
-      IF (E.TARGET.TAGNAME === 'BUTTON') {
-        CONST CLICK = DOCUMENT.GETELEMENTBYID('CLICK-SOUND');
-        CLICK.CURRENTTIME = 0;
-        CLICK.PLAY();
+  <audio id="click-sound" src="click.mp3"></audio>
+  <script>
+    document.addEventListener('click', function(e) {
+      if (e.target.tagName === 'BUTTON') {
+        const click = document.getElementById('click-sound');
+        click.currentTime = 0;
+        click.play();
       }
     });
-  </SCRIPT>
-</BODY>
-</HTML>
+  </script>
+</body>
+</html>
