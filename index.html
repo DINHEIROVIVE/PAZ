@@ -53,16 +53,6 @@
       }
     }
 
-    function step1_question();
-        return;
-      }
-
-      if (option === 'dinheiro') {
-        step1_question();
-        return;
-      }
-    }
-
     function step1_question() {
       const app = document.getElementById('app');
       app.innerHTML = `
@@ -121,8 +111,8 @@
         app.innerHTML = `
           <h1>VIDEO INDISPONÍVEL</h1>
           <h2>VOLTE DIA __/__/__</h2>
-          <button onclick=\"goToVideo()\">ABRIR VÍDEO</button>
-          <button onclick=\"step3_question()\">REINICIAR</button>
+          <button onclick="goToVideo"()\">ABRIR VÍDEO</button>
+          <button onclick="step3_question()\">REINICIAR</button>
         `;
       }
     }
