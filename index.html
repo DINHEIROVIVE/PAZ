@@ -26,13 +26,11 @@
       cursor: pointer;
       font-size: 16px;
     }
-      .blink { animation: blink 1.6s ease-in-out infinite; }
-    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
   </style>
 </head>
 <body>
   <div class="container" id="app">
-    <h1 class="blink">O QUE É A PAZ?</h1>
+    <h1>O QUE É A PAZ?</h1>
     <button onclick="choose('familia')">FAMÍLIA</button>
     <button onclick="choose('dinheiro')">DINHEIRO</button>
   </div>
@@ -43,7 +41,7 @@
 
       if (option === 'familia') {
         app.innerHTML = `
-          <h1 class="blink">PENSE COMO UM IDIOTA</h1>
+          <h1>PENSE COMO UM IDIOTA</h1>
           <button onclick="location.reload()">REINICIAR</button>
         `;
         return;
@@ -58,7 +56,7 @@
     function step1_question() {
       const app = document.getElementById('app');
       app.innerHTML = `
-        <h1 class="blink">O QUE MAIS FALTA PARA VOCÊ?</h1>
+        <h1>O QUE MAIS FALTA PARA VOCÊ?</h1>
         <button onclick="step1_answer('coragem')">CORAGEM</button>
         <button onclick="step1_answer('passado')">PASSADO</button>
       `;
@@ -68,7 +66,7 @@
       const app = document.getElementById('app');
       if (choice === 'coragem') {
         app.innerHTML = `
-          <h1 class="blink">LEMBRE DO QUE JÁ FOI</h1>
+          <h1>LEMBRE DO QUE JÁ FOI</h1>
           <button onclick="step1_question()">REINICIAR</button>
         `;
       } else {
@@ -79,7 +77,7 @@
     function step2_question() {
       const app = document.getElementById('app');
       app.innerHTML = `
-        <h1 class="blink">VOCÊ ACHA QUE A PAZ PODE VOLTAR UM DIA?</h1>
+        <h1>VOCÊ ACHA QUE A PAZ PODE VOLTAR UM DIA?</h1>
         <button onclick="step2_answer()">SIM, FAZENDO MÚSICA</button>
         <button onclick="step2_answer()">NÃO, JÁ PASSOU</button>
       `;
@@ -88,7 +86,7 @@
     function step2_answer() {
       const app = document.getElementById('app');
       app.innerHTML = `
-        <h2 class="blink">__/12/2025</h2>
+        <h2>__/12/2025</h2>
         <button onclick="step3_question()">CONTINUAR</button>
       `;
     }
@@ -96,7 +94,7 @@
     function step3_question() {
       const app = document.getElementById('app');
       app.innerHTML = `
-        <h1 class="blink">VOCÊ AINDA SABE O QUE É A PAZ?</h1>
+        <h1>VOCÊ AINDA SABE O QUE É A PAZ?</h1>
         <button onclick="step3_answer('sim')">SIM</button>
         <button onclick="step3_answer('nao')">NÃO</button>
       `;
@@ -106,23 +104,15 @@
       const app = document.getElementById('app');
       if (choice === 'sim') {
         app.innerHTML = `
-          <h1 class="blink">ACHO QUE VOCÊ ESTÁ CONFUSO</h1>
+          <h1>ACHO QUE VOCÊ ESTÁ CONFUSO</h1>
           <button onclick="step3_question()">REINICIAR</button>
         `;
       } else {
         app.innerHTML = `
-          <h1 class="blink">VIDEO INDISPONÍVEL</h1>
-          <h2 class="blink">VOLTE DIA __/__/__</h2>
+          <h1>VIDEO INDISPONÍVEL</h1>
+          <h2>VOLTE DIA __/__/__</h2>
           <button onclick="goToVideo()">ABRIR VÍDEO</button>
           <button onclick="step3_question()">REINICIAR</button>
-        `;
-      }
-    } else {
-        app.innerHTML = `
-          <h1 class="blink">VIDEO INDISPONÍVEL</h1>
-          <h2 class="blink">VOLTE DIA __/__/__</h2>
-          <button onclick="goToVideo"()\">ABRIR VÍDEO</button>
-          <button onclick="step3_question()\">REINICIAR</button>
         `;
       }
     }
