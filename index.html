@@ -40,7 +40,20 @@
       const app = document.getElementById('app');
 
       if (option === 'familia') {
+        app.innerHTML = `
+          <h1>PENSE COMO UM IDIOTA</h1>
+          <button onclick="location.reload()">REINICIAR</button>
+        `;
+        return;
+      }
+
+      if (option === 'dinheiro') {
         step1_question();
+        return;
+      }
+    }
+
+    function step1_question();
         return;
       }
 
