@@ -106,10 +106,10 @@
         `;
       } else {
         app.innerHTML = `
-          <h1>...</h1>
-          <a href="https://www.youtube.com/watch?v=D00WDQvh3mo" target="_blank">
-            <button>ABRIR VÍDEO</button>
-          </a>
+          <h1>VIDEO INDISPONÍVEL</h1>
+          <h2>VOLTE DIA __/__/__</h2>
+          <button onclick=\"goToVideo()\">ABRIR VÍDEO</button>
+          <button onclick=\"step3_question()\">REINICIAR</button>
         `;
       }
     }
